@@ -25,7 +25,8 @@ $(document).ready(function(){
                 // http://openweathermap.org/img/w/" + iconcode + ".png"
                 let icon = $(`<img src='http://openweathermap.org/img/w/${data.weather[0].icon}.png'>`)
                 let cardBody =$(`<div class='card-body'>`)
-
+                console.log(`https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${APIkey}&units=imperial`)
+                console.log(data)
                 title.append(icon)
                 cardBody.append(title, temp, wind, humidity)
                 card.append(cardBody)

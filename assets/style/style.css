@@ -47,7 +47,7 @@ li {
     background-color: rgba(48, 57, 138, 0.472) !important;
     color: #fff !important;
     font-weight: 400 !important;
-    border: 1px solid #333 !important;
+    border: 1px solid rgba(31, 26, 26, 0.4) !important;
 }
 
 li:hover {

@@ -112,6 +112,7 @@ $(document).ready(function(){
         //html tag is li, classname list, // listitem, 0, classlist// listitem 0 innertext
         let historyText = e.currentTarget.innerText
         getWeather(historyText)
+        getForcast(historyText)
     }
     let historyArry;
     
@@ -134,9 +135,14 @@ $(document).ready(function(){
             li.on('click', btnclick)
             $('.history').append(li)
         }
+        if (historyArry.length > 0) {
+            getWeather(historyArry[historyArry.length - 1]);
+            getForcast(historyArry[historyArry.length - 1]);
+            
+        }
     }
-    
     loadHistory()
+    
     
 })
 

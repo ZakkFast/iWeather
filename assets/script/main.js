@@ -21,13 +21,13 @@ $(document).ready(function(){
             url: `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${APIkey}&units=imperial`,
             dataType: 'json',
             success: function(data){
-                // console.log(data.list.length)
+                console.log(data)
                 //Creating HTML Elements and populating with data from API
                 let title = $(`<h2 class="card-title">${searchInput}</h2>`) //add date to title
                 let card = $(`<div class='card'></div>`)
-                let wind = $(`<p class='card-text'>Wind Speed: ${data.wind.speed} mph</p>`)
+                let wind = $(`<p class='card-text'>Wind Speed: ${Math.ceil(data.wind.speed)} mph</p>`)
                 let humidity = $(`<p class='card-text'>Humidty: ${data.main.humidity}%</p>`)
-                let temp = $(`<p class='card-text'>Temp: ${data.main.temp} °F</p>`)
+                let temp = $(`<p class='card-text'>Temp: ${Math.ceil(data.main.temp)}°F</p>`)
                 let icon = $(`<img src='http://openweathermap.org/img/w/${data.weather[0].icon}.png'>`)
                 let cardBody =$(`<div class='card-body'>`)
                 //console log for API data for testing purposes
@@ -38,7 +38,20 @@ $(document).ready(function(){
                 card.append(cardBody)
                 $('#current').empty()
                 $('#current').append(card)
+                console.log(data)
+                getUV(data.coord.lat, data.coord.lon)
 
+            }
+        })
+    }
+    const getUV = (lat, lon) => {
+        console.log(lon, lat)
+        $.ajax({
+            type: 'GET',
+            url: `https://api.openweathermap.org/data/2.5/uvi?appid=${APIkey}&lat=${lat}&lon=${lon}`,
+            dataType: 'json',
+            success: function (data){
+                console.log(data) //data.current.
             }
         })
     }
@@ -53,23 +66,23 @@ $(document).ready(function(){
                 $('#forecast').html('<h3 class="mt-3>Forecast</h3>').append('<div class="row"')
                 console.log(data, 'test2')
                 console.log(data.list[0].dt_txt)
-                for(let i = 0; i < data.list.length; i++){
-                    if(data.list[i].dt_txt.indexOf('15:00:00') !== -1){
+                for(let i = 0; i < data.list.length; i += 8){
                         let col = $('<div class="col-md-2"></div>')
                         let card = $('<div class="card bg-primary text-white"</div>')
                         let body =$('<div class="card-body p-2"</div>')
                         let title = $('<h4 class="title-card"></h4>').text(new Date(data.list[i].dt_txt).toLocaleDateString())
-                        // let img = $(`<img src='http://openweathermap.org/img/w/${data.list[i].weather[0].icon}.png`)
-                        let forTemp = $('<p class="card-text"></p>').text(`High of: ${data.list[i].main.temp_max}°F`)
-                        let forHumidity = $('<p class="card-text></p>').text(`Humidty: ${data.list[i].main.humidity}%`)
+                        let img = $(`<img src='http://openweathermap.org/img/w/${data.list[i].weather[0].icon}.png'>`)
+                        let forTemp = $('<p class="card-text"></p>').text(`Temp: ${Math.ceil(data.list[i].main.temp_max)}°F`)
+                        let forHumidity = $('<p class="card-text"></p>').text(`Humidty: ${data.list[i].main.humidity}%`)
+                        let forWind = $('<p class="card-text"></p>').text(`Wind: ${data.list[i].wind.speed} MPH`)
  
-                        col.append(card.append(body.append(title, forTemp, forHumidity)));
+                        col.append(card.append(body.append(title, img, forTemp, forHumidity, forWind)));
                         $('#forecast').append(col);
-                    }
                 }
             }
         })
     }
+
     //Function to create and append elements to history for recall
     function createHistoryBtnEl (searchInput){
         var li = $('<li>').addClass('list-group-item list-group-item-action').text(searchInput)
@@ -85,43 +98,15 @@ $(document).ready(function(){
 })
 
 
-// $('#history').on('click', 'li', function(){
-//     getWeather($(this).text())
-// })
-// let makeLi = (text) => {
-//     var li = $('<li>').addClass('list-group-item').text(text)
-//     $('#history').append(li)
-// }
-
 // let history = JSON.parse(window.localStorage.getItem('#history')) || [];
 
-// if(history.length > 0) {
-//     getWeather(history[history.length - 1])
-// }
-
-// for (i = 0; i <history.length; i++) {
-//     makeLi(history[i])
-// }
 
 
-//Call API for current weather
 
-    //create html elements 
-
-    //apppend elements
-
-    //call forcast and uvindex
 
 //Call API for UV Index
 
     //do something with html elements
-
-//Call API for 5 day forcast
-    //Loop through.. something?
-
-    //Define HTML elements
-
-    //Append HTML elements
 
 //Store searches as History within localstorage
 

@@ -10,7 +10,7 @@ This app will allow the user to search for a city and get relevent weather infor
 </pre>
 
 ### How to use this application
-<img src='Assets/images/Work-Day-Scheduler.gif'>
+<img src='assets/images/iWeather.gif'>
 <pre>
 In the search bar input a city name and click the search button. You will then be presented with the current forecast and a 5 day forecast containing weather information. All searches are stored in the 'history' section and can be recalled by clicking on the city name.
 </pre>

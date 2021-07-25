@@ -6,13 +6,20 @@
 
 ### The purpose of the application
 <pre>
-This app will allow the user to search for a city and get relevent weather information. When the user searches for a city info on current weather info and a 5 day forecase is preseneted to the user. The searched city is also stored in a list for easy call back. All searches are stored locally and will persist after refreshig or closing and reopening the page.
+This app will allow the user to search for a city and get relevent weather information. 
+When the user searches for a city info on current weather info and a 5 day forecase is
+preseneted to the user. The searched city is also stored in a list for easy call back. 
+All searches are stored locally and will persist after refreshig or closing and 
+reopening the page.
 </pre>
 
 ### How to use this application
 <img src='assets/images/iWeather.gif'>
 <pre>
-In the search bar input a city name and click the search button. You will then be presented with the current forecast and a 5 day forecast containing weather information. All searches are stored in the 'history' section and can be recalled by clicking on the city name.
+In the search bar input a city name and click the search button. You will then be 
+presented with the current forecast and a 5 day forecast containing weather information. 
+All searches are stored in the 'history' section and can be recalled by clicking on the 
+city name.
 </pre>
 
 

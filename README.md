@@ -22,6 +22,14 @@ All searches are stored in the 'history' section and can be recalled by clicking
 city name.
 </pre>
 
+### Technologies Used
+Jquery
+JavaScript
+HTML
+CSS
+Bootstrap Framework
+OpenWeatherMap API
+
 
 ### Requirements
 <pre>
@@ -39,6 +47,9 @@ Apple Safari (latest publicly-released version) running on the two latest public
 
 A PC or Mac that isnt a potato.
 </pre>
+
+### License 
+MIT
 
 ### Contact
 

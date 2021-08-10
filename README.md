@@ -23,12 +23,12 @@ city name.
 </pre>
 
 ### Technologies Used
-Jquery
-JavaScript
-HTML
-CSS
-Bootstrap Framework
-OpenWeatherMap API
+Jquery<br>
+JavaScript<br>
+HTML<br>
+CSS<br>
+Bootstrap Framework<br>
+OpenWeatherMap API<br>
 
 
 ### Requirements
